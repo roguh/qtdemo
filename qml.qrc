@@ -1,16 +1,14 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>Page1Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>Footer.qml</file>
         <file>FooterForm.ui.qml</file>
         <file>Header.qml</file>
         <file>HeaderForm.ui.qml</file>
         <file>assets/arrow.png</file>
-        <file>ListItem.qml</file>
-        <file>ListItemForm.ui.qml</file>
         <file>Page2.qml</file>
         <file>Page2Form.ui.qml</file>
+        <file>MainListForm.ui.qml</file>
     </qresource>
 </RCC>

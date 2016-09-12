@@ -11,7 +11,7 @@ Item {
     Rectangle {
         id: rectangle1
         height: 55
-        color: "#022379"
+        color: "#0000ff"
         anchors.top: parent.top
         anchors.topMargin: 0
         anchors.right: parent.right
