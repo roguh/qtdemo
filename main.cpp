@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     listmodel.append(new DataObject("Class 1", "near"));
     listmodel.append(new DataObject("Class 2", "near"));
     listmodel.append(new DataObject("Class 3", "near"));
-    for (int i=0; i < 40; i++)
+    for (int i=0; i < 30; i++)
         listmodel.append(new DataObject("Class X", "far"));
     listmodel.append(new DataObject("Class 30", "near"));
 
