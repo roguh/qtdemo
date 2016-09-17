@@ -36,6 +36,9 @@ ApplicationWindow {
                     footer.footer_text.text = "item added"
                     footer.state = "warning"
                 }
+                button4.onClicked: {
+                    stackview.push(sensors)
+                }
 
                 listview.model: listmodel // defined in main.cpp
             }
@@ -44,6 +47,14 @@ ApplicationWindow {
         Component {
             id: page2
             Page2Form {
+            }
+        }
+
+        Component {
+            id: sensors
+
+            SensorsForm{
+
             }
         }
 
