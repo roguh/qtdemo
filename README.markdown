@@ -1,6 +1,4 @@
 # Qt Demo
-This app demonstrates the following.
-
 ## Graphics
 - StackView; navigating with pop() and push().
 - Use of the `qtquickcontrols2.conf` file to enable Android's Material style.
@@ -16,19 +14,24 @@ This app demonstrates the following.
 ## Logic
 - Defining a custom Qt object in C++.
 - Qt context, set properties from C++.
+
+- Signals in DataObject. 
+- Signals and slots in NotificationClient.
 - Defining a listmodel.
 - States.
 
-- TODO signals
 - TODO communicating with an http server, with and without ssl
 - TODO all sensors
 - TODO location
 
 ## Android Specific
-- TODO notifications
+- QAndroidJniObject
+- conditional compilation using `#if defined(Q_OS_ANDROID)` and .pro file
+- Java source code in android-sources/src/org/.../*.java    
+- Java is registered in android-sources/AndroidManifest.xml
 
 ## Installation
-Developed using the Qt Creator.
+Developed using the open source version of the Qt Creator version 5.7.0.
 Tested on an Android emulator and on an Ubuntu desktop.
 
 Open the `.pro` file in a recent version of QtCreator to start developing.
