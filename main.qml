@@ -36,6 +36,9 @@ ApplicationWindow {
                     footer.state = "warning"
                     notificationClient.notification = "clicked!"
                 }
+                button4.onClicked: {
+                    stackview.push(sensors)
+                }
 
                 listview.model: listmodel // defined in main.cpp
             }
@@ -44,6 +47,14 @@ ApplicationWindow {
         Component {
             id: page2
             Page2Form {
+            }
+        }
+
+        Component {
+            id: sensors
+
+            SensorsForm{
+
             }
         }
 

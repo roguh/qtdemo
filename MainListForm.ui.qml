@@ -9,12 +9,18 @@ Item {
     property alias button1: button1
     property alias button2: button2
     property alias button3: button3
+    property alias button4: button4
     property alias listview: listview
+    property alias rectangle1: rectangle1
 
     ColumnLayout {
         id: columnLayout1
-        anchors.bottomMargin: 64
-        anchors.topMargin: 64
+        x: 20
+        y: 65
+        height: 330
+        transformOrigin: Item.Top
+        anchors.bottomMargin: 48
+        anchors.topMargin: 48
         anchors.rightMargin: 20
         anchors.leftMargin: 20
         anchors.fill: parent
@@ -42,15 +48,26 @@ Item {
                 text: qsTr("Create Notification")
                 Layout.fillWidth: true
             }
+
+            Button {
+                id: button4
+                width: 400
+                height: 40
+                text: qsTr("Sensors")
+                Layout.fillWidth: true
+            }
         }
 
         Rectangle {
             id: rectangle1
+            x: 125
+            y: 200
             width: 200
-            height: 200
+            height: 184
             color: "#c9ddfb"
+            transformOrigin: Item.Bottom
             Layout.minimumWidth: 350
-            Layout.fillHeight: true
+            Layout.fillHeight: false
             Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
             ListView {
@@ -60,7 +77,7 @@ Item {
                 anchors.rightMargin: 20
                 anchors.leftMargin: 20
                 anchors.bottomMargin: 20
-                anchors.topMargin: 20
+                anchors.topMargin: 24
                 anchors.fill: parent
                 spacing: 10
                 snapMode: ListView.SnapToItem
@@ -102,5 +119,6 @@ Item {
                 }
             }
         }
+
     }
 }
