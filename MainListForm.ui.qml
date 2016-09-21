@@ -39,7 +39,7 @@ Item {
 
             Button {
                 id: button3
-                text: qsTr("Create Warning")
+                text: qsTr("Create Notification")
                 Layout.fillWidth: true
             }
         }

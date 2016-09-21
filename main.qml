@@ -24,17 +24,17 @@ ApplicationWindow {
             MainListForm {
                 button1.onClicked: {
                     stackview.push(page2)
-                    footer.footer_text.text = "CLICK 1!"
                     footer.state = ""
                 }
                 button2.onClicked: {
                     stackview.push(page1)
-                    footer.footer_text.text = "CLICK 2!"
+                    footer.footer_text.text = "Sample error!"
                     footer.state = "error"
                 }
                 button3.onClicked: {
-                    footer.footer_text.text = "item added"
+                    footer.footer_text.text = "Activate Notification"
                     footer.state = "warning"
+                    notificationClient.notification = "clicked!"
                 }
 
                 listview.model: listmodel // defined in main.cpp
