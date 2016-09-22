@@ -1,0 +1,85 @@
+* Android Intents
+** Qt API
+- QtAndroid::startIntentSender
+- TODO experiment; docs aren't detailed enough
+
+** Receiving
+http://www.kdab.com/qt-android-episode-7/
+
+- define native functions in Java
+- call them on onReceive
+
+- QtAndroid::androidActivity()
+- and call getIntent()
+
+http://www.opengis.ch/2015/12/03/passing-android-intents-to-qt/
+
+** Send
+Use QtAndroid::startActivity
+
+https://blog.qt.io/blog/2016/06/30/intents-with-qt-for-android-part-1/
+
+* Android Specifics
+- TODO test ministro
+https://blog.qt.io/blog/2013/07/23/anatomy-of-a-qt-5-for-android-application/
+
+* WifiManager
+get one by calling
+(WifiManager) ---Context---.getSystemService(Context.WIFI_SERVICE);
+
+- getWifiState : int (one of the constants WIFI_STATE_*)
+- isWifiEnabled : boolean
+- startScan : boolean.
+- getScanResults : List<ScanResults>
+
+After calling the startScan function, need to wait for the
+SCAN_RESULTS_AVAILABLE_ACTION to be activated.
+
+onReceive(Contect c, Intent intent)
+action = intent.getAction()
+
+if (WifiManager.SCAN_RESULTS_AVAILABLE_ACTION.equals(action))
+    List<ScanResult> scanResultList = getScanResults();
+
+See:
+
+https://github.com/mozilla/MozStumbler/blob/92d2fa77ad7d46b84df9a5c1ccdc406a66baee64/libraries/stumbler/src/main/java/org/mozilla/mozstumbler/service/stumblerthread/scanners/WifiManagerProxy.java
+
+https://github.com/mozilla/MozStumbler/blob/92d2fa77ad7d46b84df9a5c1ccdc406a66baee64/libraries/stumbler/src/main/java/org/mozilla/mozstumbler/service/stumblerthread/scanners/WifiManagerProxy.java
+
+The Mozilla Location Service (MLS) is an open service which lets devices determine their location based on network infrastructure like Bluetooth beacons, cell towers and WiFi access points. This network based location service complements satellite based navigation systems like A-GPS.
+
+** Implementation
+QObject
+- wifiEnabled: bool <- java function
+- wifiState: int <- java function
+- startScan: signal? call java function
+- scanResults: list <- java function
+- scanResultsReady: boolean <- from an intent
+- onScanResultsReady: derived signal
+
+java function (static or not?):
+- C++ bridge (convert parameters, return values)
+- method in .java
+- maybe receive intent
+- have a QList of ScanResults (QObjects)
+
+java implementation
+- wifiEnabled, wifiState, startScan can be direct
+- onReceive needs to be defined; may need to declare intent in AndroidManifest.xml
+- scanResults need conversion
+
+** Notify Qt When Receiving SCAN_RESULTS_AVAILABLE_ACTION
+*** strategy 1: polling
+- Use Java method onReceive to set a boolean or timestamp, use C++ loop to check
+- same, use QtThread
+*** strategy 2: direct
+- Define native functions in Java and C++. Within Java method onReceive, call native functions.
+- Use QtAndroid::startIntentSender
+
+* ScanResult
+TODO generate a QObject
+
+- BSSID : String
+- SSID : String
+- level : int
