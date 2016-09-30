@@ -1,0 +1,11 @@
+<proof timestamp="">
+    <pin number="24601"/> 
+    <secret text="quantum computing"/> 
+    <qr img="?"/> 
+    <facialrecognition img="?"/>
+    <location lat="0.0" long="0.0"/>
+    <wifiscan>
+        <scanresult ssid="NMT WIFI" bssid="12" level="-14"/>
+        <scanresult ssid="NMT WIFI 2" bssid="93" level="-19"/>
+    </wifiscan>
+</proof>

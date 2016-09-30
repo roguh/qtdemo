@@ -1,0 +1,17 @@
+<classes>
+    <class name="Class 1" starts="1970-06-19" ends="1970-12-18" attended="2" missed="1"> 
+        <weeklymeeting day="Tuesday" hour="17" minute="00">
+            <attendance timestamp="" attended="true"></attendance>
+            <attendance timestamp="" attended="false"></attendance>
+            <attendance timestamp="" attended="true"></attendance>
+        </weeklymeeting>
+        <weeklymeeting day="Thursday" hour="17" minute="00">
+        </weeklymeeting>
+        <meeting timestamp="1970-07-18T14:15:09"> <!-- use QDateTime::fromString to parse this -->
+        </meeting>
+    </class>
+    <class name="Class 2"/>
+    <class name="Class 3"/>
+    <class name="Class 4"/>
+    <class name="Class 5"/>
+</classes>
