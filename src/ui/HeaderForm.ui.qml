@@ -31,7 +31,7 @@ Item {
             anchors.leftMargin: 0
             anchors.verticalCenter: parent.verticalCenter
             fillMode: Image.PreserveAspectFit
-            source: "../assets/arrow.png"
+            source: "assets/arrow.png"
 
             MouseArea {
                 id: back_button

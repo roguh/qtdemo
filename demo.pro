@@ -3,17 +3,18 @@ QT += qml quick
 # Android specific libraries
 android{
 QT += androidextras
-ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/src/android
 }
 
 
 CONFIG += c++11
 
-SOURCES += main.cpp \
-    dataobject.cpp \
-    notificationclient.cpp
+SOURCES += \
+    src/main.cpp \
+    src/model/dataobject.cpp \
+    src/android-bindings/notificationclient.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += src/qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -22,10 +23,10 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    dataobject.h \
-    notificationclient.h
+    src/model/dataobject.h \
+    src/android-bindings/notificationclient.h
 
 DISTFILES += \
-    android-sources/AndroidManifest.xml \
-    android-sources/src/org/qtproject/example/demo/NotificationClient.java \
-    android-sources/res/drawable-ldpi/icon.png
+    src/android/AndroidManifest.xml \
+    src/android/src/org/qtproject/example/demo/NotificationClient.java \
+    src/android/res/drawable-ldpi/icon.png

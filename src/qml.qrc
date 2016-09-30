@@ -1,16 +1,17 @@
 <RCC>
     <qresource prefix="/">
-        <file>qml/Footer.qml</file>
-        <file>qml/FooterForm.ui.qml</file>
-        <file>qml/Header.qml</file>
-        <file>qml/HeaderForm.ui.qml</file>
-        <file>qml/main.qml</file>
-        <file>qml/MainListForm.ui.qml</file>
-        <file>qml/Page2.qml</file>
-        <file>qml/Page2Form.ui.qml</file>
-        <file>qml/qtquickcontrols2.conf</file>
-        <file>qml/Sensors.qml</file>
-        <file>qml/SensorsForm.ui.qml</file>
-        <file>assets/arrow.png</file>
+        <file>ui/assets/arrow.png</file>
+        <file>ui/assets/arrow.svg</file>
+        <file>ui/Footer.qml</file>
+        <file>ui/FooterForm.ui.qml</file>
+        <file>ui/Header.qml</file>
+        <file>ui/HeaderForm.ui.qml</file>
+        <file>ui/main.qml</file>
+        <file>ui/MainListForm.ui.qml</file>
+        <file>ui/Page2.qml</file>
+        <file>ui/Page2Form.ui.qml</file>
+        <file>ui/Sensors.qml</file>
+        <file>ui/SensorsForm.ui.qml</file>
+        <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>

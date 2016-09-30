@@ -9,8 +9,8 @@
 #include <qqmlcontext.h>
 #include <qqml.h>
 
-#include "dataobject.h"
-#include "notificationclient.h"
+#include "model/dataobject.h"
+#include "android-bindings/notificationclient.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QLatin1String("qrc:/main.qml")));
+    engine.load(QUrl(QLatin1String("qrc:/ui/main.qml")));
 
     QList<QObject*> listmodel;
     listmodel.append(new DataObject("Class 1", "near"));
