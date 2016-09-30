@@ -1,4 +1,4 @@
-QT += qml quick
+QT += qml quick xml core
 
 # Android specific libraries
 android{
@@ -12,7 +12,8 @@ CONFIG += c++11
 SOURCES += \
     src/main.cpp \
     src/model/dataobject.cpp \
-    src/android-bindings/notificationclient.cpp
+    src/android-bindings/notificationclient.cpp \
+    src/io/classreader.cpp
 
 RESOURCES += src/qml.qrc
 
@@ -24,7 +25,8 @@ include(deployment.pri)
 
 HEADERS += \
     src/model/dataobject.h \
-    src/android-bindings/notificationclient.h
+    src/android-bindings/notificationclient.h \
+    src/io/classreader.h
 
 DISTFILES += \
     src/android/AndroidManifest.xml \

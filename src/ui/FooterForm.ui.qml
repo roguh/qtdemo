@@ -45,7 +45,7 @@ Item {
             }
         },
         State {
-            name: "warning"
+            name: "notification"
 
             PropertyChanges {
                 target: footer_rect

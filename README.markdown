@@ -35,3 +35,14 @@ Developed using the open source version of the Qt Creator version 5.7.0.
 Tested on an Android emulator and on an Ubuntu desktop.
 
 Open the `.pro` file in a recent version of QtCreator to start developing.
+
+## Utilities
+takes tags, attributes, any data, children
+generates
+DTD, XML parser, XML generator, C++ QObject, Java object
+
+with support for including other files/code segments (CPP-style) in the C++ and Java source code
+
+goal: less than 100 lines, excluding C++ and Java templates
+
+need dtd generation, xml generation, template generation, file insertion into templates

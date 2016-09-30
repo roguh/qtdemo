@@ -23,24 +23,23 @@ ApplicationWindow {
 
             MainListForm {
                 button1.onClicked: {
-                    stackview.push(page2)
+                    // stackview.push(page2)
                     footer.state = ""
                 }
                 button2.onClicked: {
-                    stackview.push(page1)
-                    footer.footer_text.text = "Sample error!"
+                    // stackview.push(page1)
+                    footer.footer_text.text = error
                     footer.state = "error"
                 }
                 button3.onClicked: {
-                    footer.footer_text.text = "Activate Notification"
-                    footer.state = "warning"
-                    notificationClient.notification = "clicked!"
+                    footer.footer_text.text = notificationClient.notification
+                    footer.state = "notification"
                 }
                 button4.onClicked: {
                     stackview.push(sensors)
                 }
 
-                listview.model: listmodel // defined in main.cpp
+                listview.model: listmodel  // defined in main.cpp
             }
         }
 
@@ -53,7 +52,7 @@ ApplicationWindow {
         Component {
             id: sensors
 
-            SensorsForm{
+            SensorsForm {
 
             }
         }
@@ -73,6 +72,8 @@ ApplicationWindow {
 
     footer: Footer {
         id: footer
+        footer_text.text: notificationClient.notification
+        state: "notification"
 
         anchors.right: parent.right
         anchors.rightMargin: 0
