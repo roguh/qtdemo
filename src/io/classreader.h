@@ -32,8 +32,8 @@ public:
 
     Result<QString, QDomDocument> loadXML();
 
-    Result<QString, QList<DataObject*>> parseClasses(Result<QString, QDomDocument>,
-        QList<DataObject*>& listmodel);
+    Result<QString, QList<QObject*>> parseClasses(Result<QString, QDomDocument>,
+        QList<QObject*>& listmodel);
 };
 
 #endif // CLASSREADER_H

@@ -18,17 +18,14 @@ int main(int argc, char *argv[])
 {
     NotificationClient *notificationClient = new NotificationClient("", "Demo Notification");
 
-    QList<DataObject*> listmodel;
+    QList<QObject*> listmodel;
 
     ClassReader reader("/home/hroc/dev/qt/qtdemo/samples/classes.xml");
     auto xmldoc = reader.loadXML();
     // when loaded, convert the XML into a list of DataObjects
     auto result = reader.parseClasses(xmldoc, listmodel);
 
-    if (!result.failed) {
-        listmodel = result._success;
-    }
-
+    listmodel.append(new DataObject("TEST", "location"));
 
     // start the QML app
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -38,8 +35,8 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QLatin1String("qrc:/ui/main.qml")));
 
     QQmlContext *ctxt = engine.rootContext();
-    ctxt->setContextProperty("notificationClient", notificationClient);
-    ctxt->setContextProperty("listmodel", QVariant::fromValue(listmodel));
+    ctxt->setContextProperty(QLatin1String("notificationClient"), notificationClient);
+    ctxt->setContextProperty(QLatin1String("listmodel"), QVariant::fromValue(listmodel));
 
     if (result.failed) {
         notificationClient->setNotification(result._failure);

@@ -26,10 +26,10 @@ Result<QString, QDomDocument> ClassReader::loadXML()
     return result;
 }
 
-Result<QString, QList<DataObject*>> ClassReader::parseClasses(Result<QString, QDomDocument> docresult,
-        QList<DataObject*>& listmodel)
+Result<QString, QList<QObject*>> ClassReader::parseClasses(Result<QString, QDomDocument> docresult,
+        QList<QObject*>& listmodel)
 {
-    Result<QString, QList<DataObject*>> result(QString(""));
+    Result<QString, QList<QObject*>> result(QString(""));
     if (docresult.failed) {
         return result.failure(docresult._failure);
     } else {
