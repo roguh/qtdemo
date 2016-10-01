@@ -1,4 +1,4 @@
-QT += qml quick xml core
+QT += core xml qml quick network
 
 # Android specific libraries
 android{
