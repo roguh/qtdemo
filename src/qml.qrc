@@ -8,8 +8,6 @@
         <file>ui/HeaderForm.ui.qml</file>
         <file>ui/main.qml</file>
         <file>ui/MainListForm.ui.qml</file>
-        <file>ui/Page2.qml</file>
-        <file>ui/Page2Form.ui.qml</file>
         <file>ui/Sensors.qml</file>
         <file>ui/SensorsForm.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
