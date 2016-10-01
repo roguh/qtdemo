@@ -27,7 +27,7 @@ def generate_qobject(object_name, props, more=None):
                  "member_name": "m_" + prop[0],
                  "capitalized_name": prop[0].capitalize() }
 
-    def prop_template(props, string):
+    def prop_template(string):
         """Takes a template string and returns a list of strings 
         where each element is the result of applying the template to each property."""
         template = Template(string)
@@ -114,5 +114,6 @@ ${member_variables}
     
     
 if __name__ == "__main__":
-    h, s = generate_qobject("Data Object", [("name", "QString"), ("location", "QString")]) 
+    #h, s = generate_qobject("Data Object", [("name", "QString"), ("location", "QString")]) 
+    h, s = generate_qobject("Class Reader", [("classes", "QList<QObject*>"), ("url", "QUrl")])
     print(h, '\n', '-' * 79, '\n', s)
