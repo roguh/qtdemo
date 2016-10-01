@@ -1,39 +1,52 @@
 #ifndef CLASSREADER_H
 #define CLASSREADER_H
 
-#include <QDomDocument>
-#include "../model/dataobject.h"
+#include <QObject>
 
-// A result represents either a failure or a success
-template<typename A, typename B>
-class Result {
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+
+#include <QUrl>
+#include <QList>
+#include <QString>
+
+class ClassReader : public QObject
+{
+    Q_OBJECT
+
+    Q_PROPERTY(QList<QObject*> classes READ classes WRITE setClasses NOTIFY classesChanged)
+    Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
+
 public:
-    A _failure;
-    B _success;
-    bool failed = false;
-    Result(A f) : _failure(f) {}
-    Result<A, B> failure(A f) {
-        _failure = f;
-        failed = true;
-        return *this;
-    }
-    Result<A, B> success(B s) {
-        _success = s;
-        failed = false;
-        return *this;
-    }
-};
+    explicit ClassReader(QObject *parent = 0);
+    ClassReader(const QList<QObject*> &classes, const QUrl &url, QObject *parent=0);
 
-class ClassReader {
-public:
-    QString _fileName;
+    void setClasses(QList<QObject*> classes);
+    void setUrl(QUrl url);
 
-    ClassReader(QString fileName);
+    QList<QObject*> classes() const;
+    QUrl url() const;
 
-    Result<QString, QDomDocument> loadXML();
+public slots:
+    void startDownload();
+    QVariant classesAsVariant() const;
 
-    Result<QString, QList<QObject*>> parseClasses(Result<QString, QDomDocument>,
-        QList<QObject*>& listmodel);
+signals:
+    void classesChanged();
+    void urlChanged();
+    void parsingError(const QString& errorMessage);
+    void networkError(const QString& errorMessage);
+
+private slots:
+    void httpFinished();
+    void parseClasses();
+
+private:
+    QList<QObject*> m_classes;
+    QUrl m_url;
+
+    QNetworkReply *reply;
+    QNetworkAccessManager networkManager;
 };
 
 #endif // CLASSREADER_H
