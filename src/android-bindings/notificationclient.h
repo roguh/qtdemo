@@ -13,7 +13,6 @@ class NotificationClient : public QObject
 
 public:
     explicit NotificationClient(QObject *parent = 0);
-
     NotificationClient(const QString &notification, const QString &content_title, QObject *parent=0);
 
     void setNotification(QString notification);

@@ -5,6 +5,11 @@
 #include <QtAndroidExtras/QAndroidJniObject>
 #endif
 
+NotificationClient::NotificationClient(QObject *parent)
+    : NotificationClient(QString(""), QString(""), parent)
+{
+}
+
 NotificationClient::NotificationClient(const QString &notification, const QString &content_title, QObject *parent)
     : QObject(parent), m_notification(notification), m_content_title(content_title)
 {
