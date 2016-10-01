@@ -10,8 +10,8 @@ Item {
     property alias button2: button2
     property alias button3: button3
     property alias button4: button4
+    property alias button5: button5
     property alias listview: listview
-    property alias rectangle1: rectangle1
 
     ColumnLayout {
         id: columnLayout1
@@ -33,19 +33,19 @@ Item {
 
             Button {
                 id: button1
-                text: "To Blank Screen"
+                text: "Start Download"
                 Layout.fillWidth: true
             }
 
             Button {
                 id: button2
-                text: qsTr("Push and Raise Error")
+                text: qsTr("Push To StackView")
                 Layout.fillWidth: true
             }
 
             Button {
                 id: button3
-                text: qsTr("Create Notification")
+                text: qsTr("Create Error")
                 Layout.fillWidth: true
             }
 
@@ -53,7 +53,15 @@ Item {
                 id: button4
                 width: 400
                 height: 40
-                text: qsTr("Sensors")
+                text: "Sensors"
+                Layout.fillWidth: true
+            }
+
+            Button {
+                id: button5
+                width: 400
+                height: 40
+                text: "Reset Error"
                 Layout.fillWidth: true
             }
         }
@@ -65,15 +73,17 @@ Item {
             width: 200
             height: 184
             color: "#c9ddfb"
+            Layout.minimumHeight: 200
             transformOrigin: Item.Bottom
-            Layout.minimumWidth: 350
+            Layout.minimumWidth: 400
             Layout.fillHeight: false
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
             ListView {
                 clip: true
 
                 id: listview
+                flickableDirection: Flickable.HorizontalAndVerticalFlick
                 anchors.rightMargin: 20
                 anchors.leftMargin: 20
                 anchors.bottomMargin: 20
@@ -94,13 +104,13 @@ Item {
                         spacing: 10
 
                         Text {
-                            text: name
+                            text: model.modelData.name
                             font.pointSize: 14
                             font.bold: true
                             anchors.verticalCenter: parent.verticalCenter
                         }
                         Text {
-                            text: location
+                            text: model.modelData.location
                             horizontalAlignment: Text.AlignHCenter
                             font.pointSize: 14
                             anchors.verticalCenter: parent.verticalCenter
