@@ -10,6 +10,8 @@
 #include <QList>
 #include <QString>
 
+class QFile;
+
 class ClassReader : public QObject
 {
     Q_OBJECT
@@ -42,11 +44,14 @@ private slots:
     void parseClasses();
 
 private:
+    QFile *openFileForWrite(const QString &fileName);
+
     QList<QObject*> m_classes;
     QUrl m_url;
 
     QNetworkReply *reply;
     QNetworkAccessManager networkManager;
+    QFile *file;
 };
 
 #endif // CLASSREADER_H
