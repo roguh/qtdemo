@@ -43,7 +43,6 @@ ApplicationWindow {
             anchors.fill: parent
             back_button.onClicked: stackview.pop()
         }
-
         StackView {
             id: stackview
             initialItem: login
