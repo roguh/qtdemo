@@ -46,7 +46,7 @@ ApplicationWindow {
 
         StackView {
             id: stackview
-            initialItem: evidence
+            initialItem: login
             anchors.fill: parent
             anchors.top: parent.top
             anchors.topMargin: header.header_rectangle.height + 5
