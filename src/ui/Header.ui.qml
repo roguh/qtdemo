@@ -7,9 +7,10 @@ Item {
     id: item1
 
     property alias back_button: back_button
+    property alias header_rectangle: header_rectangle
 
     Rectangle {
-        id: rectangle1
+        id: header_rectangle
         height: 55
         color: "#0000ff"
         anchors.top: parent.top

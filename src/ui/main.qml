@@ -13,8 +13,6 @@ import NMT.CREU2016.ClassReaders 1.0
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
     title: qsTr("Qt Demo")
     id: main
 
@@ -32,59 +30,58 @@ ApplicationWindow {
             console.log(errorMessage) // TODO log to a debug log file
             notificationClient.notification = 'XML Parsing error: ' + errorMessage
         }
-
         onNetworkError: {
             console.log(errorMessage)
             notificationClient.notification = 'Network error: ' + errorMessage
         }
     }
 
-    StackView {
-        id: stackview
+    ColumnLayout {
         anchors.fill: parent
-        initialItem: login
-
-        Component {
-            id: login
-
-            Login {
-                login_button.onClick:
-                    stackview.push(evidence)
-            }
+        Header {
+            id: header
+            anchors.fill: parent
+            back_button.onClicked: stackview.pop()
         }
 
-        Component {
-            id: evidence
+        StackView {
+            id: stackview
+            initialItem: evidence
+            anchors.fill: parent
+            anchors.top: parent.top
+            anchors.topMargin: header.header_rectangle.height + 5
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 5
 
-            Evidence {
-                send_button.onClick:
-                    stackview.push(result)
+            // for navigation using the back key
+            focus: true
+            Keys.onBackPressed: stackview.pop()
+
+            Component {
+                id: login
+                Login {
+                    login_button.onPressed:
+                        stackview.push(evidence)
+                }
+            }
+
+            Component {
+                id: evidence
+                EvidenceForm {
+                    send_button.onPressed:
+                        stackview.push(result)
+                }
+            }
+
+            Component {
+                id: result
+                Result {
+                }
             }
         }
-
-        Component {
-            id: result
-
-            Result {
-            }
-        }
-
-        // for navigation using the back key
-        focus: true
-        Keys.onBackPressed: stackview.pop()
-    }
-
-    header: Header {
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-
-        back_button.onClicked: stackview.pop()
     }
 
     footer: Footer {
-        id: footer
         footer_text.text: "All is quiet on the western front."
         state: ""
 
