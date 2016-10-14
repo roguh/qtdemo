@@ -42,47 +42,30 @@ ApplicationWindow {
     StackView {
         id: stackview
         anchors.fill: parent
-        initialItem: page1
+        initialItem: login
 
         Component {
-            id: page1
+            id: login
 
-            MainListForm {
-                button1.onClicked: {
-                    notificationClient.notification = "Starting download"
-                    classReader.startDownload()
-                }
-                button2.onClicked: {
-                    stackview.push(page1)
-                }
-                button3.onClicked: {
-                    if (footer.footer_text !== "Sample error") {
-                        footer.state = "error"
-                        footer.footer_text.text = "Sample error"
-                    }
-                }
-                button4.onClicked: {
-                    stackview.push(sensors)
-                }
-                button5.onClicked: {
-                    footer.state = ""
-                    footer.footer_text.text = ""
-                }
-                Connections {
-                    target: classReader
-                    onClassesChanged: {
-                        console.log('classes parsed:', classReader.classesAsVariant())
-                        listview.model = classReader.classesAsVariant()
-                    }
-                }
+            Login {
+                login_button.onClick:
+                    stackview.push(evidence)
             }
         }
 
         Component {
-            id: sensors
+            id: evidence
 
-            SensorsForm {
+            Evidence {
+                send_button.onClick:
+                    stackview.push(result)
+            }
+        }
 
+        Component {
+            id: result
+
+            Result {
             }
         }
 

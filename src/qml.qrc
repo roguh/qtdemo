@@ -11,5 +11,11 @@
         <file>ui/Sensors.qml</file>
         <file>ui/SensorsForm.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>ui/Evidence.qml</file>
+        <file>ui/EvidenceForm.ui.qml</file>
+        <file>ui/Login.qml</file>
+        <file>ui/LoginForm.ui.qml</file>
+        <file>ui/Result.qml</file>
+        <file>ui/ResultForm.ui.qml</file>
     </qresource>
 </RCC>
