@@ -43,7 +43,7 @@ ApplicationWindow {
         Header {
             id: header
             anchors.fill: parent
-            back_button.onClicked: stackview.pop()
+            //back_button.onClicked: stackview.pop()
         }
         StackView {
             id: stackview
@@ -56,7 +56,7 @@ ApplicationWindow {
 
             // for navigation using the back key
             focus: true
-            Keys.onBackPressed: stackview.pop()
+            //Keys.onBackPressed: stackview.pop()
 
             Component {
                 id: login
