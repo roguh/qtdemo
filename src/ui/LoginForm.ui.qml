@@ -7,6 +7,9 @@ import QtQuick.Layouts 1.3
 Item {
     id: item1
     property alias login_button: login_button
+    property alias username_field: username_field
+    property alias password_field: password_field
+    property alias server_field: server_field
 
     GridLayout {
         id: gridLayout1
@@ -78,7 +81,9 @@ Item {
 
             Button {
                 id: login_button
-                text: qsTr("Login")
+                y: 290
+                text: "Login"
+                anchors.horizontalCenterOffset: 0
                 enabled: false
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
