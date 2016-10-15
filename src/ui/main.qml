@@ -14,6 +14,8 @@ import NMT.CREU2016.ClassReaders 1.0
 ApplicationWindow {
     visible: true
     title: qsTr("Qt Demo")
+    height: 450
+    width: 350
     id: main
 
     NotificationClient {
@@ -59,6 +61,7 @@ ApplicationWindow {
             Component {
                 id: login
                 Login {
+                    // TODO: immediately send login info to server
                     login_button.onPressed:
                         stackview.push(evidence)
                 }
@@ -66,9 +69,9 @@ ApplicationWindow {
 
             Component {
                 id: evidence
-                EvidenceForm {
+                Evidence {
                     send_button.onPressed:
-                        stackview.push(result)
+                        stackview.push(result);
                 }
             }
 

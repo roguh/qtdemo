@@ -12,5 +12,6 @@
         <file>ui/LoginForm.ui.qml</file>
         <file>ui/ResultForm.ui.qml</file>
         <file>ui/Result.qml</file>
+        <file>ui/Evidence.qml</file>
     </qresource>
 </RCC>

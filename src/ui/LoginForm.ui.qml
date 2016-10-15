@@ -79,7 +79,7 @@ Item {
             Button {
                 id: login_button
                 text: qsTr("Login")
-                enabled: false
+                enabled: true
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 0
