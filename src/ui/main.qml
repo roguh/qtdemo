@@ -14,8 +14,8 @@ import NMT.CREU2016.ClassReaders 1.0
 ApplicationWindow {
     visible: true
     title: qsTr("Qt Demo")
-    height: 450
-    width: 350
+    height: 550
+    width: 450
     id: main
 
     NotificationClient {
