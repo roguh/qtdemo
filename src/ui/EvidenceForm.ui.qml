@@ -6,6 +6,7 @@ Item {
     id: item1
     clip: true
     property alias send_button: send_button
+    property alias key_field: key_field
 
     GridLayout {
         id: grid_layout
