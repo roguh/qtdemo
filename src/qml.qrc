@@ -9,7 +9,11 @@
         <file>ui/Login.qml</file>
         <file>ui/LoginForm.ui.qml</file>
         <file>ui/ResultForm.ui.qml</file>
-        <file>ui/Result.qml</file>
-        <file>ui/Evidence.qml</file>
+        <file>model/LoginData.js</file>
+        <file>model/ResponseData.js</file>
+        <file>io/FailingSender.js</file>
+        <file>io/HTTPSender.js</file>
+        <file>io/SucceedingSender.js</file>
+        <file>ui/RequestSenderInterface.qml</file>
     </qresource>
 </RCC>
