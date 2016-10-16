@@ -2,8 +2,6 @@
     <qresource prefix="/">
         <file>ui/assets/arrow.png</file>
         <file>ui/assets/arrow.svg</file>
-        <file>ui/Footer.qml</file>
-        <file>ui/FooterForm.ui.qml</file>
         <file>ui/Header.ui.qml</file>
         <file>ui/main.qml</file>
         <file>qtquickcontrols2.conf</file>
