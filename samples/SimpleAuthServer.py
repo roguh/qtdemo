@@ -3,7 +3,7 @@ import base64
 import BaseHTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
-def test(key):
+def test(auth_string, secret_key):
     class AuthHandler(SimpleHTTPRequestHandler):
         def do_HEAD(self):
             self.send_response(200)
@@ -20,9 +20,19 @@ def test(key):
             if self.check_auth():
                 length = int(self.headers.getheader('Content-length'))
                 print 'Received', self.headers.getheader('Content-type'), 'of length', length
-                print 'Contents:'
-                print self.rfile.read(length)
-                self.send_response(200)
+
+                contents = self.rfile.read(length)
+                print 'Contents:', contents
+
+                try:
+                    if int(contents) == secret_key:
+                        self.send_response(200)
+                    else:
+                        print 'Unrecognized secret key!'
+                        self.send_response(401)
+                except ValueError:
+                    print 'Unreadable secret key!'
+                    self.send_response(401)
                 self.end_headers()
 
         def do_GET(self):
@@ -34,7 +44,7 @@ def test(key):
             if self.headers.getheader('Authorization') == None:
                 self.do_AUTHHEAD()
                 self.wfile.write('no auth header received')
-            elif self.headers.getheader('Authorization') == 'Basic ' + key:
+            elif self.headers.getheader('Authorization') == 'Basic ' + auth_string:
                 return True
             else:
                 self.do_AUTHHEAD()
@@ -45,7 +55,7 @@ def test(key):
     BaseHTTPServer.test(AuthHandler, BaseHTTPServer.HTTPServer)
 
 if __name__ == '__main__':
-    if len(sys.argv)<3:
-        print 'usage SimpleAuthServer.py [port] [username:password]'
+    if len(sys.argv) != 4:
+        print 'usage SimpleAuthServer.py port username:password secret_key'
     else:
-        test(base64.b64encode(sys.argv[2])) 
+        test(base64.b64encode(sys.argv[2]), int(sys.argv[3]))
