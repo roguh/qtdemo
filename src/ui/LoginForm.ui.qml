@@ -28,33 +28,29 @@ Item {
         Text {
             id: username_text
             text: "Username:"
-            font.pixelSize: 12
+            font.pointSize: 14
         }
 
         TextField {
             id: username_field
             Layout.fillWidth: true
             placeholderText: "username"
+            font.pointSize: 14
         }
 
 
         Text {
             id: password_text
             text: "Password:"
-            font.pixelSize: 12
+            font.pointSize: 14
         }
-
-
-
-
-
-
 
         TextField {
             id: password_field
             Layout.fillWidth: true
             placeholderText: "password"
             echoMode: TextInput.Password
+            font.pointSize: 14
         }
 
 
